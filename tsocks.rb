@@ -16,7 +16,7 @@ class Tsocks < Formula
     system "autoconf", "-v"
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking", "--with-conf=#{config_file}"
 
-    inreplace("tsocks") { |bin| bin.change_make_var! "LIBDIR", lib }
+    inreplace("tsocks") { |bin| bin.change_make_var! "LIBDIR", "#{prefix}/lib" }
 
     system "make"
     system "make install"
@@ -27,8 +27,8 @@ class Tsocks < Formula
   def test
     puts 'Your current public ip is:'
     ohai `curl -sS ifconfig.me 2>&1`.chomp
-    puts "If your correctly configured #{config_file}, this should show the ip you have trough the proxy"
-    puts 'Your ip through the proxy is:'
+    puts "If your correctly configured #{config_file}, this should show the IP you have through the proxy"
+    puts 'Your IP through the proxy is:'
     ohai `tsocks curl -sS ifconfig.me 2>&1`.chomp
   end
 
