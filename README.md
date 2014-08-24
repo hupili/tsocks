@@ -11,16 +11,23 @@ brew install --HEAD tsocks.rb
 ## Usage
 
 Default proxy is `localhost:10080`.
-Edit the configuration:
+Edit the configuration here:
 
 ```
 vim $(brew --prefix)/etc/tsocks.conf
 ```
 
-Example:
+Example: (tunnel a single CLI program)
 
 ```
+ssh -D 10080 me@my-ssh-server
 tsocks curl ifconfig.me
+```
+
+Example: (enable/ disable tunnel all programs in this session)
+
+```
+source tsocks [on | off]
 ```
 
 ## License
