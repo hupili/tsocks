@@ -12,5 +12,6 @@
 local = 192.168.0.0/255.255.255.0
 
 # Otherwise we use the server
-server = 192.168.0.1
+server = 127.0.0.1
+server_port = 10080
 
