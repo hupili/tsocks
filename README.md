@@ -29,3 +29,11 @@ Original: GPL
 
 This repo: GPL
 
+## Caveats
+
+This is recently (How recent? See commits) tested on OSX 10.9.4.
+Here are some known caveats:
+
+   * If you have `/lib` dir,
+   the `libtsocks??.dylib` files will be installed there,
+   instead of the intended `$(brew --prefix)/Cellar/tsocks/HEAD/lib`
